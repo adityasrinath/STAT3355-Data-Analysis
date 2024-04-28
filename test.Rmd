@@ -1,0 +1,177 @@
+---
+title: "STAT 3355 HW1"
+output: pdf_document
+date: "2024-01-31"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+### Question 1
+
+### a)
+```{r 1a}
+a <- 8 + 9 - 7 / (3^0.3)
+print(a)
+```
+
+### b)
+```{r 1b}
+b <- log (sqrt((15+16)/(14+12)), base = 2)
+print(b)
+```
+
+### c)
+```{r 1c}
+c <- ((11 + sin(pi/4))/ (factorial(3) + abs(-10)))^2
+print(c)
+```
+
+### d)
+```{r 1d}
+d <- 6 + 5 - 4/(3^2)
+print(d)
+```
+
+### e)
+```{r 1e}
+e <- exp(sqrt((14 + 13)/(12 + 11)))
+print(e)
+```
+
+### f)
+```{r 1f}
+f <- ((11 + factorial(12))/(factorial(13) + 14))^2
+print(f)
+```
+
+### Question 2
+
+### a)
+```{r 2a}
+RF <- c(2.60, 3.05, 3.74, 3.48, 5.49, 4.25, 2.57, 2.18, 3.14, 4.82, 3.28, 3.01)
+```
+
+### b)
+```{r 2b}
+months <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+names(RF) <- months
+```
+
+### c)
+```{r 2c}
+avg <- mean(RF)
+print (round(avg, digits = 2))
+```
+
+### d)
+```{r 2d}
+min <- which.min (RF)
+max <- which.max (RF)
+print (min)
+print (max)
+```
+
+### Question 3
+
+### a)
+```{r 3a}
+H2 <- c(2700, 2600, 3050, 2900, 3000, 2500, 2600, 3000, 2800, 3200, 2800, 3400)
+```
+
+### b)
+```{r 3b}
+names(H2) <- months
+```
+
+### c)
+```{r 3c}
+total <- sum(H2)
+print(total)
+```
+
+### d)
+```{r 3d}
+difference <- diff (H2)
+min.diff <- which.min(difference)
+max.diff <- which.max(difference)
+print(min.diff)
+print(max.diff)
+```
+
+### Question 4
+
+### a)
+```{r 4a}
+x <- c(1, -2, 3, -4, 5, 100) 
+y <- x * -1
+y [y > 0]
+```
+
+### b)
+```{r 4b}
+# create a sequence from 1 to 50 
+z <- seq(1:50)
+# test whether an observation is even
+even <- z %% 2 == 0
+# subset z by the test above
+z <- z [even]
+```
+
+### c)
+```{r 4c}
+mean <- function(x) { 
+  sum(x) / length(x)
+}
+```
+
+### Question 5
+```{r block5}
+PrintSquare = function(){
+  for(i in 1:1000){
+    if(sqrt(i) == floor (sqrt(i))){
+      print(i)
+      i <- i + 1
+    }
+  }
+}
+PrintSquare()
+```
+
+### Question 6
+```{r block6}
+prime1 <- 1
+prime2 <- 2
+sum <- 0
+isPrime <- TRUE
+TwinPrime <- function(n){
+  for(j in 3:n){
+    for(k in 2:(j-1)){
+      if (j%%k == 0){
+        isPrime <- FALSE
+      }
+      k <- k + 1
+    }
+    if (isPrime == TRUE){
+      prime1 <- prime2
+      prime2 <- j
+      if (prime2 - prime1 == 2){
+      sum <- sum + 1
+    }
+    }
+    j <- j + 1
+    isPrime <- TRUE
+  }
+  return (sum)
+}
+print (TwinPrime(13))
+
+```
+
